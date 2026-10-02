@@ -1,7 +1,9 @@
 # The model was saved with Keras 3.14 / TensorFlow 2.21 (Kaggle).
 # tensorflow-cpu is smaller and is enough for inference (Streamlit Cloud has no GPU).
-tensorflow-cpu>=2.18
-keras>=3.10
+# Python 3.14 (Streamlit Cloud default) only has a TensorFlow 2.22 release-candidate wheel so far.
+# Keras is installed automatically by TensorFlow, so it is not listed separately.
+tensorflow-cpu>=2.18; python_version < "3.14"
+tensorflow-cpu==2.22.0rc0; python_version >= "3.14"
 streamlit>=1.40
 opencv-python-headless>=4.8
 numpy
