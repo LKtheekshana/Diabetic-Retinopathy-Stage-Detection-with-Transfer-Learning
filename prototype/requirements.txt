@@ -1,6 +1,7 @@
-# Versions tested locally (Windows 11, Python 3.13). The model was saved with Keras 3.
-tensorflow>=2.16
-keras>=3.0
+# The model was saved with Keras 3.14 / TensorFlow 2.21 (Kaggle).
+# tensorflow-cpu is smaller and is enough for inference (Streamlit Cloud has no GPU).
+tensorflow-cpu>=2.18
+keras>=3.10
 streamlit>=1.40
 opencv-python-headless>=4.8
 numpy

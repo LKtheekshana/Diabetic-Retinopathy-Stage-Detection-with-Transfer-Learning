@@ -1,0 +1,160 @@
+{
+  "imbalance_ratio": 9.35,
+  "preprocessing_quality_change_pct": {
+    "RMS contrast": 28.4,
+    "Entropy (bits)": 9.1,
+    "Sharpness (Laplacian var.)": 77.0
+  },
+  "backbone_comparison": [
+    {
+      "backbone": "EfficientNetB0",
+      "lr": 0.001,
+      "dense_units": 256,
+      "dropout": 0.3,
+      "params_M": 4.38,
+      "minutes": 1.9,
+      "val_accuracy": 0.7486,
+      "val_macro_f1": 0.5796,
+      "val_qwk": 0.8069,
+      "val_score": 0.6933
+    },
+    {
+      "backbone": "ResNet50V2",
+      "lr": 0.001,
+      "dense_units": 256,
+      "dropout": 0.3,
+      "params_M": 24.1,
+      "minutes": 1.9,
+      "val_accuracy": 0.6922,
+      "val_macro_f1": 0.5276,
+      "val_qwk": 0.7733,
+      "val_score": 0.6505
+    },
+    {
+      "backbone": "MobileNetV2",
+      "lr": 0.001,
+      "dense_units": 256,
+      "dropout": 0.3,
+      "params_M": 2.59,
+      "minutes": 1.6,
+      "val_accuracy": 0.7049,
+      "val_macro_f1": 0.5287,
+      "val_qwk": 0.7125,
+      "val_score": 0.6206
+    }
+  ],
+  "hparam_search": [
+    {
+      "backbone": "EfficientNetB0",
+      "lr": 0.001,
+      "dense_units": 128,
+      "dropout": 0.3,
+      "params_M": 4.22,
+      "minutes": 1.5,
+      "val_accuracy": 0.7505,
+      "val_macro_f1": 0.5456,
+      "val_qwk": 0.8004,
+      "val_score": 0.673
+    },
+    {
+      "backbone": "EfficientNetB0",
+      "lr": 0.001,
+      "dense_units": 256,
+      "dropout": 0.3,
+      "params_M": 4.38,
+      "minutes": 1.5,
+      "val_accuracy": 0.7413,
+      "val_macro_f1": 0.5618,
+      "val_qwk": 0.7805,
+      "val_score": 0.6711
+    },
+    {
+      "backbone": "EfficientNetB0",
+      "lr": 0.0003,
+      "dense_units": 256,
+      "dropout": 0.3,
+      "params_M": 4.38,
+      "minutes": 1.5,
+      "val_accuracy": 0.7086,
+      "val_macro_f1": 0.5292,
+      "val_qwk": 0.7903,
+      "val_score": 0.6597
+    },
+    {
+      "backbone": "EfficientNetB0",
+      "lr": 0.0003,
+      "dense_units": 128,
+      "dropout": 0.3,
+      "params_M": 4.22,
+      "minutes": 1.5,
+      "val_accuracy": 0.7268,
+      "val_macro_f1": 0.5262,
+      "val_qwk": 0.7706,
+      "val_score": 0.6484
+    }
+  ],
+  "test_metrics": {
+    "Model": "Final",
+    "Accuracy": 0.78,
+    "Balanced accuracy": 0.5896472172693066,
+    "Macro precision": 0.6283711946698799,
+    "Macro recall": 0.5896472172693066,
+    "Macro F1": 0.5980275508853101,
+    "Weighted F1": 0.7737847607770951,
+    "QWK": 0.8529906856693974,
+    "Macro ROC-AUC": 0.9000391854112617
+  },
+  "binary_screening": {
+    "Any DR (stage >= 1)": {
+      "Threshold (from val)": 0.1896,
+      "Sensitivity": 0.9821,
+      "Specificity": 0.9483,
+      "Precision (PPV)": 0.9514,
+      "NPV": 0.9809,
+      "Accuracy": 0.9655,
+      "ROC-AUC": 0.9929
+    },
+    "Referable DR (stage >= 2)": {
+      "Threshold (from val)": 0.4466,
+      "Sensitivity": 0.9327,
+      "Specificity": 0.893,
+      "Precision (PPV)": 0.856,
+      "NPV": 0.9511,
+      "Accuracy": 0.9091,
+      "ROC-AUC": 0.9789
+    }
+  },
+  "errors_adjacent_stage_pct": 71.1,
+  "deployment": {
+    "Parameters (M)": 4.22,
+    "Keras file size (MB)": 50.9,
+    "Latency per image (ms)": 101.8,
+    "Throughput (images/s)": 242.1
+  },
+  "tflite": {
+    "TFLite size (MB)": 4.7,
+    "Size reduction vs .keras (%)": 90.7,
+    "Agreement with full model (100 test images)": "94.0%"
+  },
+  "config": {
+    "IMG_SIZE": 224,
+    "BATCH_SIZE": 32,
+    "PREPROCESS_MODE": "clahe_edge",
+    "MIN_CLASS_RATIO": 0.5,
+    "LABEL_SMOOTHING": 0.05,
+    "RUN_BACKBONE_COMPARISON": true,
+    "COMPARE_EPOCHS": 5,
+    "RUN_HPARAM_SEARCH": true,
+    "SEARCH_EPOCHS": 4,
+    "BACKBONE": "EfficientNetB0",
+    "HEAD_LR": 0.001,
+    "DENSE_UNITS": 128,
+    "DROPOUT": 0.3,
+    "PHASE1_EPOCHS": 8,
+    "PHASE2_EPOCHS": 25,
+    "FINETUNE_LR": 5e-05,
+    "FINETUNE_FRACTION": 1.0
+  },
+  "use_tta": false,
+  "referral_threshold": 0.44658684730529785
+}
