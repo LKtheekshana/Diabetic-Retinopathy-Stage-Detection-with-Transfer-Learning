@@ -1,0 +1,8 @@
+# Versions tested locally (Windows 11, Python 3.13). The model was saved with Keras 3.
+tensorflow>=2.16
+keras>=3.0
+streamlit>=1.40
+opencv-python-headless>=4.8
+numpy
+pandas
+pillow
